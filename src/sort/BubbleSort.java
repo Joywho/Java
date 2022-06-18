@@ -1,22 +1,36 @@
-package Test;
-
+package sort;
 
 public class BubbleSort {
     public static void main(String args[]){
         Person persons[] = new Person[3];
-        persons[0] = new Person("A", 2, "javaEE");
+        persons[0] = new Person("a", 2, "javaEE");
         persons[1] = new Person("b", 1, "javaweb");
         persons[2] = new Person("c", 5, "javaproject");
-        int temp;
-        //正常输出
-        for(int i = 0; i < persons.length;i++){
+        System.out.println(persons.length);
+        //排序前----
+        System.out.println("排序前---");
+        for(int i = 0;i < persons.length;i++){
             System.out.println(persons[i]);
         }
-        //冒泡排序
-        for(int i = 0;i < persons.length;i++){
+        Person temp = null;
+        //排序后----
+        for(int i = 0;i < persons.length - 1;i++){
+            for(int j = 0;j < persons.length -1;j++){
+                if(persons[j].getAge() > persons[j+1].getAge()){
+                    temp = persons[j];
+                    persons[j] = persons[j+1];
+                    persons[j+1] = temp;
+                }
+            }
             
         }
+        System.out.println("排序后--");
+        for(int j = 0;j < persons.length;j++){
+            System.out.println(persons[j]);
+        }
+
     }
+
 }
 
 class Person {

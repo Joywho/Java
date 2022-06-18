@@ -1,5 +1,5 @@
 ### 固定开头
-public static void main(String[] args){
+`public static void main(String[] args){`
 
 ### 转义字符
 - \t 制表符 实现对齐
@@ -8,6 +8,7 @@ public static void main(String[] args){
 -  \" 一个"
 -  \' 一个'
 -  \r 一个回车
+
 
 ### 注释
 // 单行注释
@@ -103,10 +104,11 @@ a-=b  a=a-b
 表达式true 输出表达式1结果
 表达式false 输出表达式2的结果
 例子
+```
 int a = 10；
 int b = 99；
 int result = a > b ? a++ : b--;
-
+```
 ### 进制转换
 2转10
 模2除 取余 由下到上
@@ -115,19 +117,22 @@ int result = a > b ? a++ : b--;
 
 
 ### java扫描器
+```
 import java.util.Scanner;
 Scanner scannername = new Scanner(System.in);
-
+```
 ### 字符串比较
-String.equals(Stringname)
+`String.equals(Stringname)`
 
 ### 分支
+```
 if else
 switch key{
 case  123：
 xxx
 break；
 }
+```
 ### 类与对象
 (对象[属性,
     行为])
@@ -152,6 +157,7 @@ public class child extends father
 
 ### 多态
 方法的多态（重写和重载）
+
 对象的多态
 - 编译类型和运行类型可以不一样
 - 编译类型在定义对象时确定 不能更改
@@ -169,7 +175,7 @@ animal = new cat()
 
 方法
 表面编译类型 实际运行类型
-
+```
 animal{
     animalcry
 }
@@ -182,7 +188,7 @@ animal.cry()  // dogcry
 
 - ainmal animal = new animal();
 animal.cry() // animalcry
-
+```
 #### 向上转型
 感觉是继承的默认
 Animal animal = new dog()
@@ -194,7 +200,7 @@ javac       ——>     java
 #### 向下转型
 子类类型 引用名 = new 子类类型()
 父类调用子类方法
-
+```
 - animal{}
 cat extends animal{
     catchmouse()
@@ -203,8 +209,9 @@ animal{
 cat cat = (cat) animal；
 cat.catch animal
 }
-
+```
 #### instanceof
+```
 class A{}
 class B extends A{}
 判断对象的运行类型是否为某类型或者某类型的子类型
@@ -215,10 +222,11 @@ main{
     b的运行类型（B）是否为A运行类型的子类型
     b instanceof A //true
 }
-
+```
 #### **动态绑定机制**
 调用对象方法与对象运行类型绑定
 调用对象属性 没用绑定机制 看编译类型
+```
 Animal animal   =   new Dog();
 编译类型 Animal 引用名 animal = new 运行类型 Dog
 class A{
@@ -232,31 +240,33 @@ class B extends A{
 }
 
 main{
-    A a = new B()
-    a.b() // 属性无绑定 看编译类型 A {a = 1} ->B {return a}
+    B b= new A() 
+    b.b() // 属性无绑定 看编译类型 A {a = 1} ->B {return a}
 }
-
+```
 
 
 ### == 与 equals 
 == 比较运算符
-判断基本类型的值是否相等 int a = 10, double b = 10.0, a == b;
+判断基本类型的值是否相等 `int a = 10, double b = 10.0, a == b;`
 判断引用类型的物理地址是否相等 
 equals 是object类中的方法 只能判断引用类型
 String（判断字符串相等不） 和 Integer判断里面的数值是否相等 会重写equals
-a.Integer（1）.epuals(b.Integer(1)) //ture
-a.name.equals(p2.name) // ture
+    a.Integer（1）.epuals(b.Integer(1)) //ture
+    a.name.equals(p2.name) // ture
 
 
 ### hashCode()
 哈希值 同一个对象哈希值相同 每一个不同对象都有不同哈希值（10进制）
+```
 AA aa1 = new AA();
 AA aa2 = new AA();
 AA aa3 = aa1;
 aa1.hashcode() != aa2.hashcode();
 aa1.hashcode() = aa3.hashcode(); 
-
+```
 ### toString()
+```
 main(){
     System.out.println(A.toString()+monster.hashCode());
     // 输出 A类所在的包和A的类名A和16进制的哈希码 + 10进制哈希码
@@ -267,33 +277,91 @@ class A{
     name
     id
 }
-
+```
 对toString()重写  输出你想返回的属性
+```
 public String toString(){
     return "A{"+"name="+name+"id="+id+"}";
 }
+```
 ### finalize()
 垃圾回收时自动调用finalize()
 对象没有任何引用 垃圾回收器会回收对象
 
-main(){
-    Car car = new Car();
-    car = null;     //car对象没有任何引用 垃圾回收器会回收对象 回收前 调用finalize()
-}
-class Car{
-    name    
-}
+    main(){
+        Car car = new Car();
+        car = null;     //car对象没有任何引用 垃圾回收器会回收对象 回收finalize()
+    }
+    class Car{
+        name    
+    }
 
 重写finalize
+```
 @override
-public void finalize() throws Throwable {
-    System.out.print("这不是默认finalize()方法")
-}
-
-System.gc();    //主动调用垃圾回收器
-// 输出 这不是默认finalize()方法
+    public void finalize() throws Throwable {
+        System.out.print("这不是默认finalize()方法")
+    }
+    System.gc();    //主动调用垃圾回收器
+    // 输出 这不是默认finalize()方法
+```
 
 
 ### date
-date = new date();
-simpledate sd = new simpledate("yyyy-mm-dd")
+    date = new date();
+    simpledate sd = new simpledate("yyyy-mm-dd")
+
+### 访问修饰符
+|         | 本类  | 同包  | 子类  | 不同包 |
+| :-----: | :---: | :---: | :---: | :----: |
+| public  |   ✔   |   ✔   |   ✔   |   ✔    |
+| protect |   ✔   |   ✔   |   ✔   |        |
+| default |   ✔   |   ✔   |       |        |
+| private |   ✔   |       |       |        |
+>default 子类与本类在同包之内可以访问 不同包不能够访问
+
+### 分层模式
+view 界面
+service 业务层
+domain 数据层
+utility 工具类
+App main(){程序入口
+
+1. 先准备在utils类里写需要的工具类  
+>后续可以继续往里加入工具类
+2. 明确功能->思路分析—>代码实现
+   1. 先实现界面菜单menu
+      1. mainmenu方法显示界面
+      2. 在app.java 调用mainmenu方法
+      3. listhouse方法显示房屋列表界面
+      4. 
+### static 
+static本类中所有对象共享（访问时得到同一个值，修改时 修改的同一个变量）。
+![](/img/note1/2022-06-18-11-41-28.png)
+jkd8以及之前 static放在方法区中的静态域 jdk8以后放在堆中(class对象) 
+类变量是类加载时生成类的class对象。没有创建对象实列也可以访问。
+```
+main(){
+    // 两种方式访问
+    // 类名.类变量名
+    A.name1; // a  recommend;
+    A.name2; // err!
+    A.name3; // err!
+    // 对象名.类变量名
+    A a = new A();
+    a.name1; // a;
+    a.name2; // b;
+    a.name3; // err!
+}
+class A{
+    public static String name1 = "a";
+    private static String name3 = "c";
+    // 静态变量也需要遵守访问修饰符 public——>static 会访问不到类变量
+    public String name2 = "b";
+    // 非静态通过对象实列访问
+}
+```
+>静态类方法与上面类似
+
+
+
