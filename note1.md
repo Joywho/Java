@@ -361,7 +361,85 @@ class A{
     // 非静态通过对象实列访问
 }
 ```
->静态类方法与上面类似
+>静态类方法与上面类似（静态方法= 类方法）
+>静态方法不能使用this. 普通方法默认隐藏this super.也一样
+>静态方法 只能访问静态变量和静态方法
 
+### main()
+1. main()虚拟机调用
+2. java虚拟机和main()不同类
+   1. 虚拟机调用main() 访问权限必须是public
+   2. 虚拟机执行main() 必须是static
+3. 代码理解main() String
+```
+public class test {}
+public static void main(String args[]){
+    // 传入 arg[] 数组参数
+    for(int i = 0;i < args.length;i++){
+            print(arg[i])
+    }
+}
+javac test.java &&java test a b c
+// abc
+```
+4. mian()属于静态方法 
+   1. 可以访问本类中的静态变量和静态方法
+   2. 访问非静态变量和方法，需要要创建和调用对象
 
+### 代码块
+1. {}  
+2. [修饰符 = static]{}
+不同构造器中重复代码可以写入代码块
+构造器调用时，优先调用代码块中的内容
+
+#### 类的加载
+1. 创建对象实列(new)
+2. 创建子类对象实例，父类也会被加载
+3. 使用类的静态成员(静态属性 静态方法)
+4. 创建一个对象，在一个类调用顺序是
+   1. 先调用静态代码块和静态属性初始化 多个时按照定义的顺序调用
+   2. 后调用普通代码块和普通属性初始化 多个时按照定义的顺序调用
+   3. 调用构造方法
+```
+main1(){
+    A a = new A();
+    //get
+    //B代码块被a执行 父类优先被加载
+    //A代码块被a执行
+    //普通A代码块被a执行
+    A b = new A();
+    //普通A代码块被b执行
+    println(A.a1) 
+    //123
+    println(a.a1) 
+    // 123
+    // static 代码块类加载时加载 只加载一次
+    // 普通代码块 调用几次加载几次 但使用静态成员时 不会执行普通代码块
+}
+main2(){
+    A a = new A(){
+
+    }
+}
+
+class A extends B{
+    public static a1 = geta1();
+    static {
+        public static int a1 = 123;
+        print(A代码块被a执行);
+    }
+
+    {
+        print(普通A代码块被a执行);
+    }
+    public static int geta1(){
+        print(geta1被执行)
+        return 123;
+    }
+}
+class B {
+    static {
+        print(B代码块被a执行)
+    }
+}
 
