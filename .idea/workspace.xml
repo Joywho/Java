@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e92694e0-5610-4505-ac14-a9d149dc8b41" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/CodeBlock/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/CodeBlock/A.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CodeBlock/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/CodeBlock/B.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/CodeBlock/codeBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/CodeBlock/codeBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/DesignMode/signalmode/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/DesignMode/signalmode/Cat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/DesignMode/signalmode/girlfriend.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/DesignMode/signalmode/girlfriend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/DesignMode/signalmode/signalmode1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/DesignMode/signalmode/signalmode1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/DesignMode/signalmode/signalmode2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/DesignMode/signalmode/signalmode2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dynamicbinding/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dynamicbinding/A.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/dynamicbinding/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dynamicbinding/B.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/finalUse/circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/finalUse/circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/finalUse/final1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/finalUse/final1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/houserent/domain/house.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/houserent/domain/house.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/houserent/houserentApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/houserent/houserentApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/houserent/service/houseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/houserent/service/houseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/houserent/utils/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/houserent/utils/Utility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/houserent/view/houseview.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/houserent/view/houseview.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/method/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/method/Professor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/method/Teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/method/Teacher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/method/showinfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/method/showinfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sort/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sort/BubbleSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sort/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sort/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javabase.md" beforeDir="false" afterPath="$PROJECT_DIR$/javabase.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/img/javabase/2022-06-18-11-41-28.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EFTExHDKhawpttNFrhQxwk1PXl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e92694e0-5610-4505-ac14-a9d149dc8b41" name="变更" comment="" />
+      <created>1662190224850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662190224850</updated>
+      <workItem from="1662190231082" duration="161000" />
+      <workItem from="1662876592257" duration="20000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

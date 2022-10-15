@@ -540,3 +540,266 @@ public abstract void meth(); // 抽象方法
 7. 抽象方法不能被 private final static修饰 这些关键字与重写相违背。
 
 
+## 接口
+### 概述
+接口不能实列化
+引用数据类型(类，数组，接口)  
+可以赋值null或者对象(在内存中存在的地址)  
+接口的出现是为了弥补单继承的不足  
+### 格式
+public interface A{  
+    成员变量  
+    成员方法  
+}  
+public interface InterfaceBase {
+    //int i; 变量没初始化 会报错
+    public static final int i = 0; //public static final是接口变量的默认修饰符
+
+class B **implements** A{  
+}  
+编译后 生成接口.class文件  
+接口 抽象类 都不能创建对象  
+
+### 成员变量--
+public interface InterfaceBase {  
+    int i; 变量没初始化 会报错  
+    public static final int i = 0;  
+    //public static final是接口变量的默认修饰符  
+### 成员方法InterfaceMeth+
+1. 抽象方法  
+public abstract()  
+编译器默认添加(public abstract)  
+void mian();  
+2. 默认方法
+jkd8版本(包含jdk8)以上才能定义默认方法  
+defult 返回值类型 方法名
+![](source/img/2022-09-03-15-05-40.png)
+私有方法
+private void methname(){  
+}  
+只能在本接口中使用
+
+### 一个类实现多个接口
+```
+interface A1{  
+}  
+  
+interface A2{  
+}  
+  
+class b implements A1,A2{  
+}  
+//一个类 俩个接口  
+```
+### 继承类的同时实现多个接口
+`class classname extends classname2 implements interface1,interface2..`
+
+### 一个接口继承多个接口
+`interface A3 extends A1,A2{}`
+
+### 抽象类与类 类与接口 接口与接口的关系 为什么需要接口接口
+1. ![](source/img/2022-09-03-16-49-59.png)
+2. ![](source/img/2022-09-03-16-58-04.png)![](source/img/2022-09-03-16-58-18.png)
+3. ![](source/img/2022-09-03-16-59-53.png)
+4. ![](source/img/2022-09-03-17-05-27.png)
+
+
+## API
+### String
+``` java
+public class StringTest {
+    public static void main(String args[]){
+        Sting str1 = "abc";
+        Sting str2 = "abc";
+        Sting str3 = "def";
+        System.out.println(str1==str2);
+        //true 比较对象内存地址
+        System.out.println(str1.equals(str2));
+        //true 比较string内容 equals默认比较对象内存地址 string重写了quals方法
+        System.out.println(str2==str3);
+        //false 对象内存地址
+        System.out.println(str2.equals(str3));
+        //false 比较内容
+    }
+}
+```
+![](source/img/2022-09-11-14-29-40.png)
+![](source/img/2022-09-11-14-40-55.png)
+### StringBuilder
+一个**可变**字符序列  
+StringBuilder更节省内存  
+String一经初始化不可变
+``` java     
+    public class StringBuilderTest {
+    public static void main(String args[]) {
+        /*new StringBuilder*/
+        StringBuilder stringBuilder = new StringBuilder();
+        ;
+        //容器
+        System.out.println(stringBuilder);
+        //
+        /*new StringBuilder("")*/
+        StringBuilder sb = new StringBuilder("sb");
+        System.out.println(sb);
+        //sb
+        System.out.println(sb.toString());
+        //sb StringBuild重写了toString()
+        /*StringBuilder.append()*/
+        stringBuilder.append(1);
+        System.out.println(stringBuilder);
+        // 1
+        //stringBuilder.append('1','3');俩char不行
+        char[] char1 = {'1', 'a'};
+        stringBuilder.append(char1);
+        System.out.println(stringBuilder);
+        // 11a
+        stringBuilder.append(false);
+        // 11a false
+        System.out.println(stringBuilder);
+
+    }
+
+}
+
+``` 
+
+#### String Builder存储原理
+``` java
+    new StringBuilder();//容器创建时 初始化一个数字 char[] value = new char[16]
+    char[16] 字符超过16个后会怎么样？ 扩容思想
+    /**
+    *长度超过16 此时会再创建一个新的字符数组 new char[2*原始长度+2]
+    *将原来的字符拷贝到新数组 
+    *新添加字符到数组末尾 
+    *再把新数组的地址赋值给value
+    */
+    .append(9); //9转化为字符'9'追加到value数字
+    .append(5.7);// 5.7 转化为 '5' '.' '7'追加到'9'字符末尾
+    .append("abc"); //abc转化为 'a' 'b' 'c'追加到字符'7'字符末尾
+    sout(); //value vlue所有字符转化为字符串输出
+```
+#### append方法的返回值
+**返回原容器的数组值**
+``` java
+    StringBuilder sb1 = new new StringBuilder();
+    StringBuilder sb2 = sb1.append(9);
+    sb2.append("abc");
+    sout(sb1);//9abc
+    sout(sb2);//9abc
+```
+![](source/img/2022-09-27-15-33-48.png)
+
+举例 链式编程  
+``` java
+        StringBuilder sb = new StringBuilder();
+        //sb.append(1);
+        //sb.append(abc);
+        sb.append(1).append(abc).append(3.14);
+```
+
+#### StringBuilder 与 +
+``` java
+        String str = "c"+"e"; //ce
+        // 都是常量 常量池优化 编译后String str = "ce"
+        String str2 = str + "f";
+        System.out.println(str2);//cef
+        // 有变量 会创建StringBuilder 进行拼接
+        //StringBuilder sb5 = new StringBuilder();
+        //sb.append(str);
+        //sb.append("f");
+        //String str2 = sb.toString();
+        //底层执行代码 StringBuilder str2 = new StringBuilder().append(str).append("f").toString();
+```
++拼接 每拼接一次都要创建一次对象  
+StringBuilder 始终使用一个对象进行拼接  
+所以Stringbuilder更省内存  
+
+#### StringBuffer与StringBuilder
+构造方法和成员方法使用方式相同  
+StringBuffer**线程安全的可变字符序列**  
+StringBuilder **线程不安全** 效率高  
+
+### Date
+日期 精确到毫秒  
+构造方法    
+``` java
+public class DateTest {
+    public static void main(String args[]){
+
+        Date date = new Date(); //封装日期
+        System.out.println(date);//Tue Sep 27 16:18:49 CST 2022
+
+
+        Date date1 = new Date(3000);//Thu Jan 01 08:00:00 CST 1970+3000ms
+        System.out.println(date1);//Thu Jan 01 08:00:03 CST 1970
+
+        //getTime
+        System.out.println(date.getTime());//1664267025591
+        //getTime()获取的是从1970年1月1日到当前系统时间(new Date())所经过的毫秒
+        //用途 获取程序执行时间
+        long startTime = new Date().getTime();//new Date() - 1970.1.1 00:00:00的毫秒值
+        for (int i = 0 ; i<1000000000;i++){
+            i+=2;
+        }
+        long endTime = new Date().getTime();
+        System.out.println(endTime-startTime);
+
+        //localTime 年-月-日 JDK1.8
+
+    }
+}
+```
+### 正则表达式
+**规则字符串**
+参考 java.util.regex.Pattern
+![](source/img/2022-09-27-16-40-24.png)  
+``` java
+
+public class regex {
+    public static void main(String args[]) {
+
+    }
+    //正常方法
+    public static boolean checkPhoneNumber(String phoneNum) {
+        if (phoneNum.length() != 11) {
+            return false;
+        } else if (phoneNum.charAt(0) != '1') {
+            return false;
+        } else if (!(phoneNum.charAt(1) == '3'
+                || phoneNum.charAt(1) == '4'
+                || phoneNum.charAt(1) == '5'
+                || phoneNum.charAt(1) == '7'
+                || phoneNum.charAt(1) == '8')) {
+            return false;
+        } else {
+            char[] chars = phoneNum.toCharArray();
+            for (int i = 2; i < chars.length; i++) {
+                if (!(chars[i] >= '0' && chars[i] <= '9')) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    public mathces(String regex){
+        String regexstr = "1[34578]\\d{9}";
+        regex.matches
+
+    }
+
+}
+```
+#### split 
+切割单词  
+``` java
+    public boolean Mathces1(String regex){
+        String str = "i love java so much";
+        String regexStr = " +";
+        String[] splitlst = str.split(regexStr);
+        for (int i = 0; i < splitlst.length; i++) {
+            System.out.println(splitlst[i]);
+        }
+````
+
+
+
